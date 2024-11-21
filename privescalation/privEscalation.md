@@ -25,6 +25,7 @@ The example demonstrates a privilege escalation vulnerability and how to exploit
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts**
+    
     Answer: 
     1. **Lack of Authentication**:
     The /update-role route does not verify if the requester is authenticated or associated with a valid user session.
@@ -35,6 +36,7 @@ Answer the following:
     The userId is taken directly from the request body and used to look up a user without validation or verification:
 
 2. Briefly explain how a malicious attacker can exploit them.
+   
     Answer: 
     1. **Privilege Escalation**:
     By sending a malicious POST request with the userId of an admin, an attacker can bypass the role check and update roles of other users.
@@ -43,6 +45,7 @@ Answer the following:
     An attacker can change their role to admin and gain full control over the system, including modifying roles of other users or accessing restricted resources.
 
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the privilege escalation vulnerability?
+    
     Answer: 
     1. **Session-Based Authentication**:
     The /update-role route ensures the user is authenticated by checking for a valid session.

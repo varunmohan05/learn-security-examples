@@ -31,6 +31,7 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts** that can lead to a DoS attack.
+    
     Answer: 
     1. **Lack of Input Validation**:
     The id parameter is directly used in the database query without validation.
@@ -39,13 +40,17 @@ Answer the following:
     The server does not limit the number of requests from a single IP. An attacker can flood the endpoint with requests, overwhelming the server and causing legitimate users to experience downtime.
     4. **Improper Error Handling**:
     If a database query throws an exception (e.g., due to invalid _id formats), the server does not handle it gracefully, leading to potential crashes or high memory consumption.
+
 2. Briefly explain how a malicious attacker can exploit them.
+    
     Answer:
     1. **Request Flooding**:
     Without rate limiting, an attacker can send a large number of requests in a short time, causing a Denial-of-Service (DoS) for legitimate users.
     2. **Server Crashes**:
     Invalid input, such as a malformed or non-string _id parameter, can cause unhandled exceptions in the database query, potentially crashing the server. 
+
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the DoS vulnerability?
+    
     Answer:
     1. **Rate Limiting**:
     secure.ts uses the express-rate-limit middleware to limit the number of requests from a single IP:

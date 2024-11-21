@@ -33,6 +33,7 @@ Answer the following:
         Unsanitized user inputs are injected into the HTML response (res.send()), enabling an attacker to insert malicious scripts into the rendered webpage.
 
 2. Briefly explain how a malicious attacker can exploit them.
+    
     Answer: 
     1. **Cross-Site Scripting (XSS):**
     By entering a malicious script in the name field, such as the one in readme.
@@ -43,6 +44,7 @@ Answer the following:
     If the req.session.user value is stored and displayed on multiple pages, the malicious script persists across sessions, affecting every page that displays the injected name.
 
 3. Briefly explain why **secure.ts** does not have the same vulnerabilties?
+    
     Answer: 
     1. **Input Sanitization with escapeHTML:**
         secure.ts uses the escapeHTML function to sanitize user inputs before processing or rendering them. This function replaces special HTML characters (<, >, &, ", ') with their escaped equivalents, effectively neutralizing malicious scripts.
